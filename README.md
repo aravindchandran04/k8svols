@@ -1,5 +1,16 @@
 # Kubernetes Persistent Volumes Source Code
 
+# Commands to remote into masters and agents
+
+	# Copy private key to master node
+	scp /root/.ssh/id_rsa  azureuser@52.165.190.149:/home/azureuser/.ssh
+	SSH into master node
+	ssh -A -i /root/.ssh/id_rsa  azureuser@52.165.190.149
+	# From Master node, SSH to agent node using private key
+	ssh -i /home/azureuser/.ssh/id_rsa azureuser@k8s-agent-94D29638-2
+	
+
+
 ## task-pv-volume.yml
 
 	kind: PersistentVolume
@@ -51,6 +62,7 @@
 	      volumeMounts:
 	      - mountPath: "/usr/share/nginx/html"
 	        name: task-pv-storage
+
 
 ## Useful Commands
 
