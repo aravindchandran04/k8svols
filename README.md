@@ -100,6 +100,8 @@
 	  ports:
 	    # The port that this service should serve on.
 	    - port: 8888
+	      name: http
+	      targetPort: 80
 	  # Label keys and values that must match in order to receive traffic for this service.
 	  selector:
 	    app: ngnixapp
