@@ -51,3 +51,20 @@
 	      volumeMounts:
 	      - mountPath: "/usr/share/nginx/html"
 	        name: task-pv-storage
+
+## Useful Commands
+
+	kubectl create -f http://k8s.io/docs/tasks/configure-pod-container/task-pv-volume.yaml
+	kubectl create -f http://k8s.io/docs/tasks/configure-pod-container/task-pv-pod.yaml
+	kubectl create -f http://k8s.io/docs/tasks/configure-pod-container/task-pv-claim.yaml
+	
+	
+	kubectl get pv task-pv-volume
+	kubectl get pvc task-pv-claim
+	kubectl get pod task-pv-pod
+	kubectl describe pod task-pv-pod
+	kubectl exec -it task-pv-pod -- /bin/bash
+	apt-get update
+	apt-get install curl
+	curl localhost
+
