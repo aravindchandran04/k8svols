@@ -46,6 +46,9 @@
 	apiVersion: v1
 	metadata:
 	  name: task-pv-pod
+      labels:
+         name: ngnix
+         app: ngnixapp
 	spec:
 	
 	  volumes:
@@ -83,3 +86,21 @@
 ## How to clear the screen on master and agent nodes
 
 	echo -e \\033c
+
+
+## Expose POD as a SERVICE
+
+	apiVersion: v1
+	kind: Service
+	metadata:
+	  labels:
+	    name: nginxservice
+	  name: nginxservice
+	spec:
+	  ports:
+	    # The port that this service should serve on.
+	    - port: 8888
+	  # Label keys and values that must match in order to receive traffic for this service.
+	  selector:
+	    app: ngnixapp
+	  type: LoadBalancer
