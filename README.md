@@ -75,8 +75,11 @@
 	kubectl get pvc task-pv-claim
 	kubectl get pod task-pv-pod
 	kubectl describe pod task-pv-pod
-	kubectl exec -it task-pv-pod -- /bin/bash
+	kubectl exec -it task-pv-pod  /bin/bash
 	apt-get update
 	apt-get install curl
 	curl localhost
 
+## How to clear the screen on master and agent nodes
+
+	echo -e \\033c
